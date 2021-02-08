@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Day1 {
-	public static void main(String[] args) {
+	public static void main(String args[]) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(
-					new File("E:\\Programmieren\\Java\\Wörkbensch\\AdventOfCode\\2020\\Day1\\NumberList")));
+					new File("E:\\Programmieren\\Java\\Wï¿½rkbensch\\AdventOfCode\\2020\\Day1\\NumberList")));
 			ArrayList<Long> numbers = new ArrayList<>();
 			String line = reader.readLine();
 			while (line != null) {
