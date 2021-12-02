@@ -22,4 +22,23 @@ public class FileReader {
 		}
 		return null;
 	}
+	
+	public static ArrayList<String> getFileContent(String folder, String filename) {
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new java.io.FileReader(new File(folder + filename)));
+			ArrayList<String> strings = new ArrayList<>();
+			String line = reader.readLine();
+			while (line != null) {
+				strings.add(line);
+				line = reader.readLine();
+			}
+			return strings;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 }
+
