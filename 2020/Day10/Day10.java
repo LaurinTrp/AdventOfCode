@@ -7,7 +7,7 @@ import Globals.FileReader;
 
 public class Day10 {
 
-	public static void main(Strin[] args) {
+	public static void main(String[] args) {
 	ArrayList<String> strings = FileReader.getFileContent("Day10\\Adapters");
 		ArrayList<Integer> ints = new ArrayList<>();
 		int oneJump = 0, threeJumps = 0;

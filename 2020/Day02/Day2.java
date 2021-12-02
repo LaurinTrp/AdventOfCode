@@ -1,4 +1,4 @@
-package Day2;
+package Day02;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,7 +12,7 @@ public class Day2 {
 		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(
-					new File("E:\\Programmieren\\Java\\Wörkbensch\\AdventOfCode\\2020\\Day2\\PasswordList")));
+					new File("E:\\Programmieren\\Java\\Wï¿½rkbensch\\AdventOfCode\\2020\\Day2\\PasswordList")));
 			ArrayList<String[]> strings = new ArrayList<>();
 			String line = reader.readLine();
 			while (line != null) {
