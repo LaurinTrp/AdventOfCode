@@ -1,4 +1,4 @@
-package Day2;
+package Day02;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
