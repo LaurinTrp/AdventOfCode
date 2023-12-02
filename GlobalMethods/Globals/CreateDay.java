@@ -1,8 +1,13 @@
 package Globals;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
+
+import Loaders.ResourceLoader;
 
 public class CreateDay {
 	public static void main(String[] args) {
@@ -29,13 +34,15 @@ public class CreateDay {
 				if(srcFolder.exists()) {
 					File folder;
 					if((folder = new File(srcFolder, "Day_" + day)).mkdirs()) {
-						new File(folder, "Day_" + day + "_" + year + ".java").createNewFile();
+						File srcFile = new File(folder, "Day_" + day + ".java");
+						srcFile.createNewFile();
+						writeTemplate(srcFile, year, day);
 					}
 				}else {
 					throw new IOException("Source folder for this year does not exist");
 				}
 				
-				File resFolder = new File(f.getAbsoluteFile(), "res" + File.separator + "Files");
+				File resFolder = new File(f.getAbsoluteFile(), "res" + File.separator + "Files" + File.separator + year);
 				File folder;
 				if((folder = new File(resFolder, "Day_" + day)).mkdirs()) {
 					new File(folder, "Test.txt").createNewFile();
@@ -52,4 +59,25 @@ public class CreateDay {
 		}
 		
 	}
+	
+	
+	private static void writeTemplate(File file, int year, String day) {
+		try(FileWriter fw = new FileWriter(file);
+				BufferedWriter writer = new BufferedWriter(fw);){
+			StringBuilder sb = new StringBuilder();
+			sb.append("package Day_" + day + ";");
+			sb.append("\n");
+			sb.append("import java.io.File;\nimport java.util.List;\nimport Loaders.ResourceLoader;");
+			sb.append("\n\n");
+			sb.append("public class Day_" + day + " {\n");
+			sb.append("\tpublic static void main(String[] args){\n");
+			sb.append("\t\tList<String> lines = ResourceLoader.getContentAsLines(\"" + year + "\", \"Day_" + day + "\" + File.separator + \"Input.txt\");\n");
+			sb.append("\t}\n");
+			sb.append("}");
+			writer.write(sb.toString());
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
