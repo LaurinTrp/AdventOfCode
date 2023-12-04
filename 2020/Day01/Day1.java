@@ -5,29 +5,54 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import Loaders.ResourceLoader;
 
 public class Day1 {
 	public static void main(String args[]) {
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(
-					new File("E:\\Programmieren\\Java\\W�rkbensch\\AdventOfCode\\2020\\Day1\\NumberList")));
-			ArrayList<Long> numbers = new ArrayList<>();
-			String line = reader.readLine();
-			while (line != null) {
-				numbers.add(Long.parseLong(line.trim()));
-				line = reader.readLine();
+		List<String> lines = ResourceLoader.getContentAsLines("2020", "Day01" + File.separator + "Input.txt");
+		partOne(lines);
+		partTwo(lines);
+	}
+
+	private static void partOne(List<String> lines) {
+		List<Integer> numbers = lines.stream().map(x -> {
+			try {
+				return Integer.parseInt(x);
+			} catch (Exception e) {
+				return null;
 			}
-			for (int i = 0; i < numbers.size(); i++) {
-				for (int j = 0; j < numbers.size(); j++) {
-					for (int j2 = 0; j2 < numbers.size(); j2++) {
-						if(numbers.get(i) + numbers.get(j) + numbers.get(j2) == 2020) {
-							System.out.println(numbers.get(i) * numbers.get(j) * numbers.get(j2));
-						}
+		}).collect(Collectors.toList());
+
+		for (int i = 0; i < numbers.size(); i++) {
+			for (int j = i; j < numbers.size(); j++) {
+				if (numbers.get(i) + numbers.get(j) == 2020) {
+					System.out.println(numbers.get(i) * numbers.get(j));
+					return;
+				}
+			}
+		}
+	}
+	private static void partTwo(List<String> lines) {
+		List<Integer> numbers = lines.stream().map(x -> {
+			try {
+				return Integer.parseInt(x);
+			} catch (Exception e) {
+				return null;
+			}
+		}).collect(Collectors.toList());
+
+		for (int i = 0; i < numbers.size(); i++) {
+			for (int j = i; j < numbers.size(); j++) {
+				for (int k = j; k < numbers.size(); k++) {
+					if (numbers.get(i) + numbers.get(j) + numbers.get(k) == 2020) {
+						System.out.println(numbers.get(i) * numbers.get(j) * numbers.get(k));
+						return;
 					}
 				}
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 }
