@@ -12,7 +12,7 @@ import Loaders.ResourceLoader;
 
 public class Day1 {
 	public static void main(String args[]) {
-		List<String> lines = ResourceLoader.getContentAsLines("2020", "Day01" + File.separator + "Input.txt");
+		List<String> lines = ResourceLoader.getContentAsLines("2020", "Day_01" + File.separator + "Input.txt");
 		partOne(lines);
 		partTwo(lines);
 	}
