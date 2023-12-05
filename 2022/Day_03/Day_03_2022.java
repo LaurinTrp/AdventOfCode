@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day_03_2022 {
 	public static void main(String[] args) {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day_02 {
 	public static void main(String[] args) {

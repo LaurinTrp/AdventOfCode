@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day_01 {
 	public static void main(String[] args) {

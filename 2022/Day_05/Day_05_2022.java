@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day_05_2022 {
 

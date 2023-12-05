@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day_01_2022 {
 	public static void main(String[] args) {
-		ArrayList<String> input = ResourceLoader.getContentAsLines("2022", "Day_01/Input.txt");
+		List<String> input = ResourceLoader.getContentAsLines("2022", "Day_01/Input.txt");
 		ArrayList<Integer> sums = new ArrayList<>();
 
 		int max = 0;

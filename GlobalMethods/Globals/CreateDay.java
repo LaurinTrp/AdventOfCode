@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-import Loaders.ResourceLoader;
-
 public class CreateDay {
 	public static void main(String[] args) {
 		

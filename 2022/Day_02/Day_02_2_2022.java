@@ -2,12 +2,14 @@ package Day_02;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day_02_2_2022 {
 	public static void main(String[] args) throws Exception {
-		ArrayList<String> lines = ResourceLoader.getContentAsLines("2022", "Day_02/Input.txt");
+		
+		List<String> lines = ResourceLoader.getContentAsLines("2022", "Day_02/Input.txt");
 		
 		int sum = 0;
 		

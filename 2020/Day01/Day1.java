@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import Loaders.ResourceLoader;
+import Globals.ResourceLoader;
 
 public class Day1 {
 	public static void main(String args[]) {
