@@ -2,12 +2,13 @@ package Day02;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 import Globals.FileReader;
 
 public class Day2_2021 {
 	public static void main(String[] args) {
-		ArrayList<String> lines = FileReader.getFileContent(Paths.get("").toAbsolutePath().toString(),
+		List<String> lines = FileReader.getFileContent(Paths.get("").toAbsolutePath().toString(),
 				"/2021/Day2/input.txt");
 		int horizontal = 0, vertical = 0, aim = 0, depth = 0;
 		for (String line : lines) {
