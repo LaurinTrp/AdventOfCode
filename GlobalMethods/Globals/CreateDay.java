@@ -65,7 +65,7 @@ public class CreateDay {
 			StringBuilder sb = new StringBuilder();
 			sb.append("package Day_" + day + ";");
 			sb.append("\n");
-			sb.append("import java.io.File;\nimport java.util.List;\nimport Loaders.ResourceLoader;");
+			sb.append("import java.io.File;\nimport java.util.List;\nimport Globals.ResourceLoader;");
 			sb.append("\n\n");
 			sb.append("public class Day_" + day + " {\n");
 			sb.append("\tpublic static void main(String[] args){\n");

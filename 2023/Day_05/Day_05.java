@@ -15,6 +15,7 @@ import Globals.ResourceLoader;
 public class Day_05 {
 
 	private static List<Long> seeds = new ArrayList<>();
+	private static List<List<Long[]>> boundaries = new ArrayList<List<Long[]>>();
 
 	public static void main(String[] args) {
 		String content = ResourceLoader.getFileContentAsString("2023", "Day_05" + File.separator + "Input.txt");
@@ -31,31 +32,48 @@ public class Day_05 {
 		while (matcherSeeds.find()) {
 			seeds.add(Long.parseLong(matcherSeeds.group().strip()));
 		}
-		
+
 		calculateMinLocation(splitted);
 	}
-	
+
 	private static void partTwo(String content) {
 		String[] splitted = content.split("\n\n");
 
+		Long min = Long.MAX_VALUE;
 		Pattern patternSeeds = Pattern.compile("\\d+\\s\\d+");
 		Matcher matcherSeeds = patternSeeds.matcher(splitted[0]);
+
+		for (int i = 1; i < splitted.length; i++) {
+			List<Long[]> boundariesTemp = getValues(splitted[i]);
+			boundaries.add(boundariesTemp);
+		}
+
 		while (matcherSeeds.find()) {
 			String match = matcherSeeds.group();
-			long[] values = new long[] {
-					Long.parseLong(match.split(" ")[0]),
-					Long.parseLong(match.split(" ")[1]),
-			};
-			for (long i = values[0]; i < values[0] + values[1]; i++) {
-				seeds.add(i);
+			long[] values = new long[] { Long.parseLong(match.split(" ")[0]), Long.parseLong(match.split(" ")[1]), };
+
+			for (long l = values[0]; l < values[0] + values[1]; l++) {
+				long value = l;
+
+				for (List<Long[]> list : boundaries) {
+
+					List<Long[]> boundaries = list;
+					for (int j = 0; j < boundaries.size(); j++) {
+						Long[] boundary = boundaries.get(j);
+						if (value >= boundary[1] && value <= boundary[1] + boundary[2] - 1) {
+							long offset = Math.abs(boundary[1] - value);
+							value = boundary[0] + offset;
+							break;
+						}
+					}
+				}
+				min = Math.min(value, min);
 			}
-			calculateMinLocation(splitted);
-			seeds.clear();
 		}
-//		System.out.println(seeds);
-		
+		System.out.println(min);
+
 	}
-	
+
 	private static void calculateMinLocation(String[] splitted) {
 		Long min = Long.MAX_VALUE;
 		for (Long seed : seeds) {
@@ -64,7 +82,7 @@ public class Day_05 {
 				List<Long[]> boundaries = getValues(splitted[i]);
 				for (int j = 0; j < boundaries.size(); j++) {
 					Long[] boundary = boundaries.get(j);
-					if(value >= boundary[1] && value <= boundary[1] + boundary[2] - 1) {
+					if (value >= boundary[1] && value <= boundary[1] + boundary[2] - 1) {
 						long offset = Math.abs(boundary[1] - value);
 						value = boundary[0] + offset;
 						break;
@@ -75,7 +93,7 @@ public class Day_05 {
 		}
 		System.out.println(min);
 	}
-	
+
 	private static List<Long[]> getValues(String subset) {
 		List<Long[]> out = new ArrayList<>();
 		Pattern pattern = Pattern.compile("(\\d+\\s?){3}");
@@ -90,5 +108,5 @@ public class Day_05 {
 		}
 		return out;
 	}
-	
+
 }
