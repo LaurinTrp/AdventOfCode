@@ -32,7 +32,7 @@ public class CreateDay {
 				if(srcFolder.exists()) {
 					File folder;
 					if((folder = new File(srcFolder, "Day_" + day)).mkdirs()) {
-						File srcFile = new File(folder, "Day_" + day + ".java");
+						File srcFile = new File(folder, "Day_" + day  + "_" + year + ".java");
 						srcFile.createNewFile();
 						writeTemplate(srcFile, year, day);
 					}
@@ -67,7 +67,7 @@ public class CreateDay {
 			sb.append("\n");
 			sb.append("import java.io.File;\nimport java.util.List;\nimport Globals.ResourceLoader;");
 			sb.append("\n\n");
-			sb.append("public class Day_" + day + " {\n");
+			sb.append("public class Day_" + day + "_" + year + " {\n");
 			sb.append("\tpublic static void main(String[] args){\n");
 			sb.append("\t\tList<String> lines = ResourceLoader.getContentAsLines(\"" + year + "\", \"Day_" + day + "\" + File.separator + \"Input.txt\");\n");
 			sb.append("\t}\n");
