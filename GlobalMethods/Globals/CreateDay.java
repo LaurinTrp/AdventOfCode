@@ -73,7 +73,13 @@ public class CreateDay {
 
 				    public class %s {
 				        public static void main(String[] args) {
-				            List<String> lines = ResourceLoader.getContentAsLines("%s", "Day_" + %s + File.separator + "Input.txt");
+				            List<String> lines = ResourceLoader.getContentAsLines("%s", "Day_" + %s + File.separator + "Test.txt");
+				            
+				            int result1 = 0;
+				            int result2 = 0;
+				            
+							System.out.println("Result 1: " + result1);
+							System.out.println("Result 2: " + result2);
 				        }
 				    }
 				    """.formatted(packageName, className, year, day);
