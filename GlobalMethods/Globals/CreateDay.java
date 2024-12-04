@@ -62,17 +62,22 @@ public class CreateDay {
 	private static void writeTemplate(File file, int year, String day) {
 		try(FileWriter fw = new FileWriter(file);
 				BufferedWriter writer = new BufferedWriter(fw);){
-			StringBuilder sb = new StringBuilder();
-			sb.append("package Day_" + day + ";");
-			sb.append("\n");
-			sb.append("import java.io.File;\nimport java.util.List;\nimport Globals.ResourceLoader;");
-			sb.append("\n\n");
-			sb.append("public class Day_" + day + "_" + year + " {\n");
-			sb.append("\tpublic static void main(String[] args){\n");
-			sb.append("\t\tList<String> lines = ResourceLoader.getContentAsLines(\"" + year + "\", \"Day_" + day + "\" + File.separator + \"Input.txt\");\n");
-			sb.append("\t}\n");
-			sb.append("}");
-			writer.write(sb.toString());
+			String packageName = "Day_" + day;
+			String className = "Day_" + day + "_" + year;
+			String content = """
+				    package %s;
+
+				    import java.io.File;
+				    import java.util.List;
+				    import Globals.ResourceLoader;
+
+				    public class %s {
+				        public static void main(String[] args) {
+				            List<String> lines = ResourceLoader.getContentAsLines("%s", "Day_" + %s + File.separator + "Input.txt");
+				        }
+				    }
+				    """.formatted(packageName, className, year, day);
+			writer.write(content);
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
