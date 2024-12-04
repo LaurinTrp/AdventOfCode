@@ -12,8 +12,6 @@ public class Day_04_2024 {
 	public static void main(String[] args) {
 		List<String> lines = ResourceLoader.getContentAsLines("2024", "Day_04" + File.separator + "Input.txt");
 
-		int resultCounter = 0;
-
 		int lineCounter = 0;
 		for (String line : lines) {
 			for (int i = 0; i < line.length(); i++) {
