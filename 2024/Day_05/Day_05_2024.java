@@ -54,8 +54,6 @@ public class Day_05_2024 {
 
 		System.out.println("Result 1: " + result1);
 
-		List<Integer[]> updatedValues = new ArrayList<>();
-
 		for (String line : updates) {
 			Integer[] updatesValues = Arrays.stream(line.split(",")).map(x -> Integer.parseInt(x))
 					.toArray(Integer[]::new);
