@@ -21,12 +21,12 @@ public class ResourceLoader {
 			String s = new String(is.readAllBytes());
 			return s;
 		} catch (IOException e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
 	
 	public static List<String> getContentAsLines(String folder, String filename){
-		
 		String content = getFileContentAsString(folder, filename);
 		return content.lines().collect(Collectors.toList());
 		
