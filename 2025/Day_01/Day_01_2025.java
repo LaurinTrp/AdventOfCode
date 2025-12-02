@@ -10,7 +10,7 @@ public class Day_01_2025 {
 		int result2 = 0;
 		List<String> lines = ResourceLoader.getContentAsLines("2025", "Day_01" + File.separator + "Input.txt");
 
-		int value = 50;
+		int value = 50; 
 		for (String line : lines) {
 			char dir = line.charAt(0);
 			int steps = Integer.parseInt(line.substring(1));
