@@ -72,7 +72,7 @@ public class CreateDay {
 				    import Globals.ResourceLoader;
 
 				    public class %s {
-				        public static void main(String[] args) {
+				        public static void main() {
 				            long result1 = 0;
 				            long result2 = 0;
 				            List<String> lines = ResourceLoader.getContentAsLines("%s", "Day_%s" + File.separator + "Test.txt");
